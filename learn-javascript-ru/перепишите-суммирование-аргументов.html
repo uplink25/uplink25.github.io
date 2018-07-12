@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"></head><body><script>
+
+  function sumArgs() {
+    arguments.reduce = [].reduce;
+    return arguments.reduce(function(sum, currentItem) {
+      return sum + currentItem;
+    });
+  };
+
+  alert( sumArgs(1, 2, 3 , 4) );   
+
+</script></body></html>

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"></head><body><script>
+
+  function f(x) {
+    return Math.random() * x;
+  };
+
+  function makeCaching(f) {
+    var previousArg;
+    var previousValue;
+    return function () {
+      if(arguments[0] == previousArg) {
+        return previousValue;
+      } else {
+        previousArg = arguments[0];
+        previousValue = f.apply(this, arguments);
+        return previousValue;
+      }
+    };
+
+  }
+
+  f = makeCaching(f);
+
+  var a, b;
+
+  a = f(1);
+  b = f(1);
+  document.write( a == b,"</br>");
+
+  b = f(2);
+  document.write( a == b );  
+
+</script></body></html>

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+
+  <script>
+
+    function formatDate(date) {
+      var yy = date.getFullYear();
+      yy = yy % 100;
+      if (yy < 10) yy = '0' + yy;
+      var mm = 1 + date.getMonth();
+      mm = mm < 10 ? '0'+mm : mm;
+      var dd = date.getDate();
+      dd = dd < 10 ? '0'+dd : dd;
+      return dd + "." + mm + "." + yy;
+    }
+
+    var d = new Date(2014, 0, 30); // 30 января 2014
+    console.log( formatDate(d) ); // '30.01.14'
+
+  </script>
+
+</body>
+</html> 

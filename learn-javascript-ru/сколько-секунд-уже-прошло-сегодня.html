@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+
+  <script>
+
+    function getSecondsToday (){
+      var d = new Date(); // now
+      var d0 = new Date(d.getFullYear(), d.getMonth(), d.getDate()); // today
+      return Math.floor((d - d0)/1000); // diff
+    }
+
+  </script>
+
+</body>
+</html> 

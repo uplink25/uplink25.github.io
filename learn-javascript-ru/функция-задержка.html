@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"></head><body><script>
+
+  function f(x) {
+    console.log( x );
+  }
+
+  function delay(func, ms) {
+    return function () {
+      var arg = arguments;
+      var savedThis = this;
+      var timerId = function() {
+        func.apply(savedThis, arg);
+      }
+      setTimeout( timerId, ms);
+
+    }
+  }
+
+  var f1000 = delay(f, 1000);
+  var f1500 = delay(f, 2000);
+
+  f1000("тест", 23);
+  f1500("тест2");
+
+</script></body></html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"></head><body><script>
+//
+function Accumulator(startingValue){
+  var value = startingValue;
+
+  this.read = function() {
+    var a = +prompt("Сколько будем прибавлять?", "0");
+    this.value += a;
+  };
+
+  this.value = (function() {
+    return value;
+  })();
+
+};
+
+var accumulator = new Accumulator(5); // начальное значение 1
+accumulator.read(); // прибавит ввод prompt к текущему значению
+accumulator.read(); // прибавит ввод prompt к текущему значению
+alert( accumulator.value ); // выведет текущее значение
+//
+</script></body></html>

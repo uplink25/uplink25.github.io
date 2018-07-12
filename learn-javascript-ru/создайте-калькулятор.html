@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"></head><body><script>
+//
+function Calculator(){
+  this.a = undefined;
+  this.b = undefined;
+
+  this.calculate = function(str) {
+    var arr = str.split(' ');
+    arr[0] = +arr[0];
+    arr[2] = +arr[2];
+    
+    return this[arr[1]](arr[0], arr[2]);
+    
+  };
+
+  this["+"] = function (a, b){
+    return a + b;
+  };
+  this["-"] = function (a, b){
+    return a - b;
+  };
+
+  this.addMethod = function(name, func) {
+    this[name] = func;
+  };
+};
+
+var calc = new Calculator;
+
+alert( calc.calculate("3 + 7") ); // 10
+
+var powerCalc = new Calculator;
+powerCalc.addMethod("*", function(a, b) {
+  return a * b;
+});
+powerCalc.addMethod("/", function(a, b) {
+  return a / b;
+});
+powerCalc.addMethod("**", function(a, b) {
+  return Math.pow(a, b);
+});
+
+var result = powerCalc.calculate("2 ** 3");
+alert( result ); // 8
+alert(powerCalc.calculate("2 * 3"));
+alert(powerCalc.calculate("12 / 3"));
+//
+</script></body></html>

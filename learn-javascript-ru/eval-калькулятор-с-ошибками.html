@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"></head><body><script>
+
+	while(!succes) {
+
+		try {
+			var succes = true;
+			var a = prompt("Введите выражение","2-");
+			var b = eval (a);
+
+			if(isNaN(b)) {
+				throw new SyntaxError ("На ноль делить нельзя");
+			}
+		} catch (e) {
+			alert("Ошибка: "+e.message+", повторите ввод.")
+			succes = false;
+		} 
+
+	}
+
+	console.log(b);
+
+</script></body></html>

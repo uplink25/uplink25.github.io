@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"></head><body><script>
+
+  function applyAll () {
+    var func = arguments[0];
+    
+    return func.apply(this, [].slice.call(arguments, 1))
+  }   
+
+</script></body></html>

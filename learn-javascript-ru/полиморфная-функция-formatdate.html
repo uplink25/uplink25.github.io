@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"></head><body><script>
+
+  function formatDate(date) {
+    var type = {}.toString.call(date).slice(8,-1);
+    switch(type) {
+      case "String":
+      case "Date":
+      date = new Date(date);
+      break
+      case "Number":
+      date = new Date(date*1000);
+      break
+      case "Array":
+      date = new Date(date[0],date[1],date[2]);
+      break
+    }
+
+    function fillToTen(a) {
+      if(a < 10) return "0" + a;
+      return a;
+    }
+
+    var dd = fillToTen(date.getDate());
+    var mm = fillToTen(date.getMonth() + 1);
+    var YY = fillToTen(date.getFullYear()%100);
+    return dd+"."+mm+"."+YY;
+  }
+
+  console.log( formatDate('2011-10-02') );
+  console.log( formatDate(1234567890) );
+  console.log( formatDate([2014, 0, 1]) );
+  console.log( formatDate(new Date(2014, 0, 1)) );
+
+</script></body></html>
