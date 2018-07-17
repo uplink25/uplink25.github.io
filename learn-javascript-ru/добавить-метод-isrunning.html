@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"></head><body><script>
+
+	
+	function CoffeeMachine(power, capacity) {
+		var waterAmount = 0;
+		var timer = -1;
+		var WATER_HEAT_CAPACITY = 4200;
+
+		function getTimeToBoil() {
+			return waterAmount * WATER_HEAT_CAPACITY * 80 / power;
+		}
+
+		this.setWaterAmount = function(amount) {
+	    // ... проверки пропущены для краткости
+	    waterAmount = amount;
+	};
+
+	this.getWaterAmount = function(amount) {
+		return waterAmount;
+	};
+
+	var onReady = function() {
+		alert( 'Кофе готов!');
+	};
+
+	this.setOnReady = function(func) {
+		onReady = func;
+	};
+
+	this.run = function() {
+		timer = setTimeout(function(){ 
+			onReady();
+			timer = -1;
+		} , getTimeToBoil());
+	};
+
+	this.isRunning = function() {
+		return timer != -1;
+	}
+
+};
+
+var coffeeMachine = new CoffeeMachine(20000, 500);
+coffeeMachine.setWaterAmount(100);
+
+alert( 'До: ' + coffeeMachine.isRunning() ); // До: false
+
+coffeeMachine.run();
+alert( 'В процессе: ' + coffeeMachine.isRunning() ); // В процессе: true
+
+coffeeMachine.setOnReady(function() {
+  alert( "После: " + coffeeMachine.isRunning() ); // После: false
+});
+
+
+</script></body></html>
