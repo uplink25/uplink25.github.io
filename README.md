@@ -5,4 +5,4 @@
 <br/>
 <a href="uplink25.github.io/learn-javascript-ru/index.html">Мои выполненные задания с сайта learn.javascript.ru</a>
 <br/>
-<a href="uplink25.github.io/sudoku/sudoku.html">СУДОКУ</a>
+<a href="/sudoku/sudoku.html">СУДОКУ</a>
